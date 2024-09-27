@@ -1,0 +1,37 @@
+// Override Bootstrap variables here, if necessary
+$white: #ffffff;
+
+$theme-colors: (
+    "light":      #d9e3f6,
+    "dark":       #010752,
+    "primary":    #3a0ca3,
+    "secondary":  #4361ee,
+    "info":       #4cc9f0,
+    "accent1":    #f72585,
+    "accent2":    #7209b7,
+    "accent3":    #c7b3e3,
+    "success":    #07ab65,
+    "warning":    #e2cd07,
+    "danger":     #f22302,
+);
+
+// Import Bootstrap's SCSS after variable overrides
+@import 'bootstrap/scss/bootstrap';
+
+// Import Bootstrap Icons
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Custom styles
+.cl-organizationSwitcherTrigger .cl-organizationPreviewMainIdentifier {
+  color: $white !important; // Using $white variable for consistency
+  padding-left: 0.3rem; // Equivalent to Bootstrap's ps-3
+  text-overflow: ellipsis; // To handle truncation
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1rem;
+  max-width: 100px;
+}
+
+.cl-organizationSwitcherTrigger .cl-organizationSwitcherTriggerIcon {
+  color: $white !important; // Using $white variable for consistency
+}
