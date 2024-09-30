@@ -1,19 +1,19 @@
 // Override Bootstrap variables here, if necessary
-$white: #ffffff;
+// $white: #ffffff;
 
-$theme-colors: (
-    "light":      #d9e3f6,
-    "dark":       #010752,
-    "primary":    #3a0ca3,
-    "secondary":  #4361ee,
-    "info":       #4cc9f0,
-    "accent1":    #f72585,
-    "accent2":    #7209b7,
-    "accent3":    #c7b3e3,
-    "success":    #07ab65,
-    "warning":    #e2cd07,
-    "danger":     #f22302,
-);
+// $theme-colors: (
+//     "light":      #d9e3f6,
+//     "dark":       #010752,
+//     "primary":    #3a0ca3,
+//     "secondary":  #4361ee,
+//     "info":       #4cc9f0,
+//     "accent1":    #f72585,
+//     "accent2":    #7209b7,
+//     "accent3":    #c7b3e3,
+//     "success":    #07ab65,
+//     "warning":    #e2cd07,
+//     "danger":     #f22302,
+// );
 
 // Import Bootstrap's SCSS after variable overrides
 @import 'bootstrap/scss/bootstrap';

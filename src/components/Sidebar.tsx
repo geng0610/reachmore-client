@@ -13,42 +13,23 @@ const Sidebar: React.FC = () => {
         <svg className="bi pe-none me-2" width="40" height="32">
           {/* Your SVG or Logo */}
         </svg>
-        <span className="fs-4">Sidebar</span>
+        <span className="fs-4">Reachmore</span>
       </Link>
       <hr />
      <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
-          <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link text-white')} aria-current="page">
+          <NavLink to="/lists" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link text-white')} aria-current="page">
             <i className="bi bi-file-earmark-text-fill pe-3"></i>
-            RFPs
+            Audience
           </NavLink>
         </li>
         <li>
           <NavLink to="/vendors" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link text-white')}>
             <i className="bi bi-building-fill pe-3"></i>
-            Vendors
+            Settings
           </NavLink>
         </li>
         <hr/>
-        <li>
-          <NavLink to="/vendor-profile" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link text-white')}>
-            <i className="bi bi-person-fill pe-3"></i>
-            Vendor Profile
-          </NavLink>
-        </li>
-        <hr/>
-        <li>
-          <NavLink to="/requirements" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link text-white')}>
-            <i className="bi bi-list-check pe-3" ></i>
-            Requirements
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/approval-states" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link text-white')}>
-            <i className="bi bi-person-fill pe-3"></i>
-            Approval States
-          </NavLink>
-        </li>
 
       </ul>
       <hr />

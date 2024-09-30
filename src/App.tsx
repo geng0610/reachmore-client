@@ -9,6 +9,8 @@ import SignUpPage from './pages/SignUpPage';
 import Dashboard from './pages/Dashboard';
 import { useSetupAxiosInterceptors } from './hooks/useSetupAxiosInterceptors';
 import posthog from 'posthog-js';
+import ListDashboard from './pages/ListDashboard';
+import ListDetails from './pages/ListDetails';
 
 
 const App: React.FC = () => {
@@ -30,12 +32,14 @@ const App: React.FC = () => {
   return (
     <Router>
       <SignedIn>
-          {userMemberships.isLoading ? (
+          {userMemberships.isLoading || !userMemberships.count ? (
             <div>Loading...</div>
           ) : userMemberships.count > 0 ? (
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<Dashboard />} />
+                <Route path="/lists" element={<ListDashboard />} />
+                <Route path="/lists/:id" element={<ListDetails />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Route>
             </Routes>
