@@ -383,7 +383,7 @@ const ListDetails: React.FC = () => {
 
             </div>
           </form>
-          <div className="mt-4 d-none">
+          <div className="mt-4">
             <span className='d-flex align-items-center justify-content-start mb-2'>
               <span className='fs-4'>Generated Query (For QA purposes)</span>
               <button
