@@ -26,12 +26,13 @@ const App: React.FC = () => {
         email: user.emailAddresses[0]?.emailAddress,
       });
     }
+    console.log(userMemberships);
   }, [user]);
 
   return (
     <Router>
       <SignedIn>
-          {userMemberships.isLoading || !userMemberships.count ? (
+          {userMemberships.isLoading || userMemberships.count == undefined ? (
             <div>Loading...</div>
           ) : userMemberships.count > 0 ? (
             <Routes>

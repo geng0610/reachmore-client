@@ -1,13 +1,13 @@
 // src/pages/CreateOrganizationPage.tsx
 import React from 'react';
-import { OrganizationSwitcher, CreateOrganization, useClerk } from '@clerk/clerk-react';
+import { OrganizationSwitcher, CreateOrganization } from '@clerk/clerk-react';
 
 interface CreateOrganizationPageProps {
   user: any;
 }
 
 const CreateOrganizationPage: React.FC<CreateOrganizationPageProps> = ({ user }) => {
-  const { clerk } = useClerk();
+  // const { clerk } = useClerk();
 
   return (
     <div className="container mt-5">
