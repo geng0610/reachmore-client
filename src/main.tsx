@@ -1,5 +1,5 @@
 // src/main.tsx
-import React, { useEffect } from 'react';
+// import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ClerkProvider } from '@clerk/clerk-react';
 import App from './App';
@@ -15,15 +15,15 @@ posthog.init('phc_fjWoJwVKvtGo9EeNinLI1RPxoUZhfHc2ouYkPCYwtBG',
 )
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ClerkProvider
       publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}
       // Set the sign-in and sign-up URLs
       signInUrl="/sign-in"
       signUpUrl="/sign-up"
-      fallbackRedirectUrl="/" // Updated prop
+      // fallbackRedirectUrl="/" // Updated prop
     >
       <App />
     </ClerkProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

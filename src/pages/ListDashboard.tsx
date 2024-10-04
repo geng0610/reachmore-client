@@ -28,7 +28,7 @@ const ListDashboard: React.FC = () => {
 
   const handleCreateNewList = async () => {
     try {
-      const response = await createAudienceList({ name: 'New Audience List' });
+      const response = await createAudienceList();
       navigate(`/lists/${response.data._id}`);
     } catch (err) {
       console.error('Failed to create new audience list', err);

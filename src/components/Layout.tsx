@@ -14,7 +14,7 @@ const Layout: React.FC = () => {
         </div>
 
         {/* Main content area */}
-        <div className="col-md-9 col-lg-10 p-0">
+        <div className="col-md-9 col-lg-10 p-0 h-100">
           {/* Top bar for mobile */}
           <TopBar />
           
