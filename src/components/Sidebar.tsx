@@ -10,9 +10,7 @@ const Sidebar: React.FC = () => {
   return (
     <>
       <Link to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <svg className="bi pe-none me-2" width="40" height="32">
-          {/* Your SVG or Logo */}
-        </svg>
+        <img src="/reachmore-logo-large.svg" alt="Reachmore Logo" width="40" height="32" />
         <span className="fs-4">Reachmore</span>
       </Link>
       <hr />
@@ -20,7 +18,7 @@ const Sidebar: React.FC = () => {
         <li className="nav-item">
           <NavLink to="/lists" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link text-white')} aria-current="page">
             <i className="bi bi-file-earmark-text-fill pe-3"></i>
-            Audience
+            Contact List
           </NavLink>
         </li>
         <li>

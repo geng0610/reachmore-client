@@ -304,11 +304,11 @@ const ListDetails: React.FC = () => {
 
 
   return (
-    <div className="container pt-4 overflow-hidden mw-100 h-100 px-5">
-      <div className="row h-100 overflow-hidden">
-        <div className="col-4 h-100 overflow-auto">
+    <div className="container pt-4 overflow-hidden mw-100 h-100 px-4">
+      <div className="row h-100 overflow-hidden g-4">
+        <div className="col-4 h-100 overflow-auto border-end">
           {/* Audience List Input */}
-          <h2>Audience List Input</h2>
+          <h2>List Input</h2>
           <form>
             <div className="mb-3">
               <label htmlFor="listName" className="form-label">List Name:</label>
@@ -325,20 +325,22 @@ const ListDetails: React.FC = () => {
               <textarea
                 id="freeFormContacts"
                 className="form-control"
-                rows={5}
+                rows={8}
                 value={freeFormContacts}
                 onChange={(e) => setFreeFormContacts(e.target.value)}
+                placeholder='James Marshall, james@example.com, Real Estate Agent, Keller William Realty'
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="additionalContext" className="form-label">Additional Context about your business:</label>
+              <label htmlFor="additionalContext" className="form-label">Tell us about your business and use case:</label>
               <textarea
                 id="additionalContext"
                 className="form-control"
-                rows={3}
+                rows={8}
                 value={additionalContext}
                 onChange={(e) => setAdditionalContext(e.target.value)}
+                placeholder='I run a sign printing business for local real estate and insurance agencies in New Jersey.'
               />
             </div>
             <div className="mb-3 d-flex justify-content-between align-items-center">
@@ -381,7 +383,7 @@ const ListDetails: React.FC = () => {
 
             </div>
           </form>
-          <div className="mt-4">
+          <div className="mt-4 d-none">
             <span className='d-flex align-items-center justify-content-start mb-2'>
               <span className='fs-4'>Generated Query (For QA purposes)</span>
               <button
@@ -402,37 +404,45 @@ const ListDetails: React.FC = () => {
         </div>
         <div className="col-8 h-100 overflow-auto">
           {/* Audience Results */}
-          <div className='d-flex align-items-center justify-content-between'>
-            <h2>Audience Results</h2>
-            <div className="d-flex align-items-center">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-toggle="modal"
-                data-bs-target="#queryResultsModal"
-                disabled={!summaryData}
-              >
-                View the entire list
-              </button>
-              <button
-                type="button"
-                className="ms-3 btn btn-primary"
-              >
-                Push to my ad channels
-              </button>
+          {isFetchingResults && (
+            <div className="d-flex align-items-center justify-content-center h-100">
+              <div className='text-center'>
+                <div className="loader d-inline-block"></div>
+                <div className="ms-2">Builidng your list...</div>
 
+              </div>
             </div>
-          </div>
-          {isFetchingResults && <p>Fetching query results...</p>}
-          {queryToContacts.length > 0 && (
+          )}
+          {queryToContacts.length > 0 ? (
             <div className='row'>
               {/* Audience Summary */}
               {/* <hr /> */}
+              <div className='d-flex align-items-center justify-content-between'>
+                <h2>Generated List</h2>
+                <div className="d-flex align-items-center">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#queryResultsModal"
+                    disabled={!summaryData}
+                  >
+                    View the entire list
+                  </button>
+                  <button
+                    type="button"
+                    className="ms-3 btn btn-primary"
+                  >
+                    Push to my ad channels
+                  </button>
+
+                </div>
+              </div>
               {summaryData ? (
                 <div className="col-8 mt-4">
                   <div className='mb-4 d-flex align-items-center justify-content-between'>
                     <span className='fs-4'>
-                      Audience Summary
+                      List Summary
                     </span>
                     <span className='fs-6'>
                       Total contacts: {totalCount}
@@ -502,18 +512,18 @@ const ListDetails: React.FC = () => {
                   <div className="row align-items-center">
                     <div className='fs-4 mb-4'>Your Feedback</div>
                     <div className="text-center mb-4">
-                        <button
-                          className="btn btn-primary"
-                          onClick={handleUpdateListWithFeedback}
-                          disabled={
-                            Object.values(contactFeedback).filter(Boolean).length === 0 &&
-                            overallFeedback.trim() === ''
-                          }
-                        >
-                          Update list by incorporating my {Object.values(contactFeedback).filter(Boolean).length} votes
-                          {overallFeedback ? (overallFeedback.trim() !== '' ? ' and overall feedback' : '') : ''}
-                        </button>
-                      </div>
+                      <button
+                        className="btn btn-primary"
+                        onClick={handleUpdateListWithFeedback}
+                        disabled={
+                          Object.values(contactFeedback).filter(Boolean).length === 0 &&
+                          overallFeedback.trim() === ''
+                        }
+                      >
+                        Update list by considering my {Object.values(contactFeedback).filter(Boolean).length === 0 ? '' : Object.values(contactFeedback).filter(Boolean).length} votes
+                        {overallFeedback ? (overallFeedback.trim() !== '' ? ' and overall feedback' : '') : ''}
+                      </button>
+                    </div>
                     <hr />
                     <div className='fs-5 mb-2'>Sample Contacts</div>
                     {sampleContacts.slice(currentContactIndex, currentContactIndex + 1).map((contact) => (
@@ -617,7 +627,15 @@ const ListDetails: React.FC = () => {
 
 
             </div>
-          )}
+          ) : (
+            <div className="d-flex justify-content-center align-items-center h-100">
+              <div>
+                <img src='/no-input.svg' alt="Logo" className="img-fluid mb-4" style={{ width: '400px' }} />
+                <div>
+                  Get started by telling us a bit mroe about your business
+                </div>
+              </div>
+            </div>)}
         </div>
       </div>
     </div >

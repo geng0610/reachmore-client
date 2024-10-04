@@ -6,7 +6,6 @@ import Layout from './components/Layout';
 import CreateOrganizationPage from './pages/CreateOrganizationPage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
-import Dashboard from './pages/Dashboard';
 import { useSetupAxiosInterceptors } from './hooks/useSetupAxiosInterceptors';
 import posthog from 'posthog-js';
 import ListDashboard from './pages/ListDashboard';
