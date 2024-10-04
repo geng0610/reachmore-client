@@ -37,10 +37,10 @@ const App: React.FC = () => {
           ) : userMemberships.count > 0 ? (
             <Routes>
               <Route path="/" element={<Layout />}>
-                <Route index element={<Dashboard />} />
+                <Route index element={<Navigate to="/lists" />} />
                 <Route path="/lists" element={<ListDashboard />} />
                 <Route path="/lists/:id" element={<ListDetails />} />
-                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="*" element={<Navigate to="/lists" />} />
               </Route>
             </Routes>
           ) : (
