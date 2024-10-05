@@ -2,6 +2,7 @@ export interface AudienceList {
     _id: string;
     name: string;
     userId: string;
+    organizationId: string;
     freeFormContacts: string;
     additionalContext: string;
     createdAt: Date;
